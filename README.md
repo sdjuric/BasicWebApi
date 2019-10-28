@@ -1,9 +1,13 @@
 # BasicWebApi
 A basic web api project.
 
+Requirements and dependencies:
+* MongoDB, Nodejs, NPM 
+
+
 Walkthrough:
 To save time and show functionality with minimal input, here is a basic walkthrough of the API. 
-I used Postman, but anything similar will suffice.
+I ran the server with "node server" and used Postman for testing, but anything similar will suffice.
 
 * GET: Retrieve list of users and their details, except the ones that require authentication.  
 http://localhost:3600/users
