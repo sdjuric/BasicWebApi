@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt'); 
 
 module.exports = {
+
+// Create a new user with a unique email address.
  create: function(req, res, next) {
   userModel.create({ firstName: req.body.firstName, lastName: req.body.lastName, password: req.body.password, email: req.body.email, dateOfBirth: req.body.dateOfBirth, favouriteColour: req.body.favouriteColour }, function (err, result) {
       if (err) 
@@ -11,7 +13,8 @@ module.exports = {
        res.json({status: "success", message: "User added", data: null});
     });
  },
- 
+
+// Authenticate yourself and log in.
 authenticate: function(req, res, next) {
   userModel.findOne({email:req.body.email}, function(err, userInfo){
     if (err) {
@@ -27,6 +30,7 @@ authenticate: function(req, res, next) {
   });
  },
 
+// Retrieve a specific user
 getById: function(req, res, next) {
   userModel.findById(req.params.userId, function(err, userInfo){
    if (err) {
@@ -37,6 +41,7 @@ getById: function(req, res, next) {
   });
  },
  
+// Retrieve list of users and their details
 getAll: function(req, res, next) {
   let userList = [];
 userModel.find({}, function(err, users){

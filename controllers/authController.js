@@ -3,7 +3,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt'); 
 
 module.exports = {
-	
+
+// Retrieve list of users and their full details
 getAll: function(req, res, next) {
   let userList = [];
 authUserModel.find({}, function(err, users){
@@ -17,7 +18,8 @@ authUserModel.find({}, function(err, users){
    }
   });
  },
-	
+
+// Change a user's email.
 updateEmail: function(req, res, next) {
   authUserModel.findByIdAndUpdate(req.params.userId,{email:req.body.email}, function(err, userInfo){
     if(err)
@@ -27,6 +29,8 @@ updateEmail: function(req, res, next) {
     }
   });
  },
+ 
+ // Deletes a user.
  deleteById: function(req, res, next) {
   authUserModel.findByIdAndRemove(req.params.userId, function(err, userInfo){
    if(err)

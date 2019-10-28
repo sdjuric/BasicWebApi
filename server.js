@@ -12,6 +12,7 @@ mongoose.connection.on('error', console.error.bind(console, 'Unable to connect t
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
+
 app.get('/', function(req, res){
 res.json({"BasicWebApi" : "A basic Web Api."});
 });
@@ -24,6 +25,7 @@ app.use('/authUsers', validateUser, authUsers);
 app.get('/favicon.ico', function(req, res) {
     res.sendStatus(204);
 });
+
 function validateUser(req, res, next) {
   jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function(err, decoded) {
     if (err) {
@@ -49,6 +51,7 @@ app.use(function(err, req, res, next) {
   else 
     res.status(500).json({message: "Internal Server Error! "});
 });
+
 app.listen(3600, function(){
- console.log('Node server is now active on port 3600.');
+ console.log('Node server is now active on port 3600. ');
 });

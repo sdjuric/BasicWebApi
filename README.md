@@ -23,7 +23,7 @@ http://localhost:3600/users/authenticate
 http://localhost:3600/authUsers
 
 * PUT: Change a user's email. This requires authentication. (Provide an x-access-token in the header and provide the new email in the body.)  
-http://localhost:3600/users/EXAMPLEUSERID
+http://localhost:3600/authUsers/EXAMPLEUSERID
 
 * DELETE: Deletes a user. This requires authentication. (Provide an x-access-token in the header.)  
-http://localhost:3600/users/EXAMPLEUSERID
+http://localhost:3600/authUsers/EXAMPLEUSERID
